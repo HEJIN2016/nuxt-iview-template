@@ -13,6 +13,11 @@ export default {
   components: {
     Logo
   },
+  data () {
+    return {
+      a: 1
+    }
+  },
   async asyncData ({ params, req, error, redirect }) {
     // 服务端渲染
     return new Promise((resolve, reject) => {

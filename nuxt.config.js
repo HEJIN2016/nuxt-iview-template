@@ -66,6 +66,15 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    postcss: {
+      plugins: {
+        // Disable `postcss-url`
+        "postcss-import": {},
+        "postcss-url": {},
+        // to edit target browsers: use "browserslist" field in package.json
+        "autoprefixer": {}
+      }
+    },
     extractCSS: true, // 开启extractCSS
     publicPath: '/static/',
 
