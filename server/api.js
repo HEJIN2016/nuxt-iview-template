@@ -6,3 +6,9 @@ app.get("/test", (req, res, next)=>{
     a: 1
   })
 });
+
+// Export the server middleware
+module.exports = {
+  path: '/api',
+  handler: app
+};
