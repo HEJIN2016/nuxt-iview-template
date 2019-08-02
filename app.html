@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]>
+<html lang="zh-cn" class="lt-ie9 ie9" {{ HTML_ATTRS }}>
+<![endif]-->
+<!--[if !IE]><!--><html {{ HTML_ATTRS }}><!--<![endif]-->
+<head>
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="/static/js/history.js"></script>
+    <![endif]-->
+    <script>
+        function IEVersion() {
+            var userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
+            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; // 判断是否IE<11浏览器
+            var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; // 判断是否IE的Edge浏览器
+            var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+            if(isIE) {
+                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                reIE.test(userAgent);
+                var fIEVersion = parseFloat(RegExp["$1"]);
+                if(fIEVersion == 7) {
+                    return 7;
+                } else if(fIEVersion == 8) {
+                    return 8;
+                } else if(fIEVersion == 9) {
+                    return 9;
+                } else if(fIEVersion == 10) {
+                    return 10;
+                } else {
+                    return 6; // IE版本<=7
+                }
+            } else if(isEdge) {
+                return 'edge';// edge
+            } else if(isIE11) {
+                return 11; // IE11
+            } else {
+                return false;// 不是ie浏览器
+            }
+        }
+        // var isIE = IEVersion();
+        // if (isIE&&isIE < 9) {
+        //     window.location.href = '/static/explorer.html';
+        // }
+        // if (IEVersion()) {
+        //     var scriptElem = document.createElement('script');
+        //     scriptElem.src = '/static/js/polyfill.min.js';
+        //     document.head.insertBefore(scriptElem);
+        // }
+    </script>
+    {{ HEAD }}
+</head>
+<body {{ BODY_ATTRS }}>
+{{ APP }}
+</body>
+<!--<div style="visibility: hidden">-->
+    <!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275427745'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1275427745' type='text/javascript'%3E%3C/script%3E"));</script>-->
+<!--</div>-->
+<script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?29ab91ef4a9c6cd147ed1cde7db26e2d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</html>
